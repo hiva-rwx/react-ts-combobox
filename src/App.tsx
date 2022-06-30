@@ -1,8 +1,9 @@
-import React from 'react'
-
+import './app.scss'
 const App = () => {
   return (
-    <div>App</div>
+    <div className='flex justify-center items-start w-screen h-screen bg-gray-300'>
+      
+    </div>
   )
 }
 
