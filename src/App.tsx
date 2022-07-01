@@ -16,11 +16,13 @@ const data = [
 ];
 const App = () => {
   // const [state1,toggle1,close1,open1] = useToggle()
+  // const [state2, toggle2, close2, open2] = useToggle();
   const [state1, setState1] = useState(false);
-  const [state2, toggle2, close2, open2] = useToggle();
+  const [state2, setState2] = useState(false);
   const [listSelected, setListSelected] = useState<string[]>([]);
   const [listSelected2, setListSelected2] = useState<string[]>([]);
-  console.log(state1);
+  console.log(` state1 => ${state1}`);
+  console.log(` state2 => ${state2}`);
   return (
     <div className="flex justify-center items-start w-screen h-screen bg-gray-300">
       <Combobox
@@ -40,8 +42,8 @@ const App = () => {
         multiSelect={false}
         title="one select combobox"
         isOpen={state2}
-        close={close2}
-        open={open2}
+        close={() => setState2(false)}
+        open={() => setState2(true)}
       />
     </div>
   );

@@ -1,18 +1,18 @@
 import { useEffect, useRef } from "react";
 
-const useClickOutSide = (handler: any) => {
+const useClickOutSide = (cb: () => void) => {
   const domNode = useRef<any>(null);
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
       if (!domNode?.current?.contains(e.currentTarget)) {
-        handler();
+        cb();
       }
     };
     document.addEventListener("click", handleClick);
     return () => {
       document.removeEventListener("click", handleClick);
     };
-  }, [handler]);
+  }, [cb]);
   return domNode;
 };
 export default useClickOutSide;

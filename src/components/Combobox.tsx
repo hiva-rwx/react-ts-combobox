@@ -22,7 +22,7 @@ const Combobox = ({
   open,
 }: Props) => {
   const refCloseCombobox = useClickOutSide(() => {
-    // close();
+    isOpen && close();
   });
 
   const handleClickItem = useCallback(
@@ -30,7 +30,7 @@ const Combobox = ({
       if (!listSelected.some((i) => i === item)) {
         if (!multiSelect) {
           setListSelected([item]);
-          close()
+          close();
         } else {
           setListSelected([...listSelected, item]);
         }
@@ -56,7 +56,8 @@ const Combobox = ({
     <div className="combobox mx-3" ref={refCloseCombobox}>
       <strong>{title}</strong>
       <div
-        className="combobox-field flex justify-between items-center px-1 rounded bg-gray-600 text-white py-3"
+        className="combobox-field flex justify-between items-center px-1 rounded bg-gray-600
+         text-white py-3"
         onClick={() => open()}
       >
         <div className="selected">
